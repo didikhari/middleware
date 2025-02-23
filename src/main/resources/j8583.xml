@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE j8583-config PUBLIC "-//J8583//DTD CONFIG 1.0//EN"
+	"http://j8583.sourceforge.net/j8583.dtd">
+<j8583-config>
+
+<!-- The client uses this to read the response -->
+<parse type="0810">
+	<field num="7" 	type="DATE10" 				>TRANSMISSION DATE AND TIME</field>
+	<field num="11" type="NUMERIC" 	length="6"	>SYSTEM TRACE AUDIT NUMBER</field>
+	<field num="34" type="LLVAR" 	length="28"	>TERMINAL VERSION</field>
+	<field num="39" type="ALPHA" 	length="2"	>RESPONSE CODE</field>
+	<field num="41" type="ALPHA" 	length="8"	>TERMINAL CODE</field>
+	<field num="44" type="LLVAR" 	length="25"	>TERMINAL MAC ADDRESS</field>
+	<field num="48" type="LLLVAR" 				>ADDITIONAL DATA PRIVATE</field>
+	<field num="64" type="BINARY" 	length="8"	>MAC 1</field>
+	<field num="70" type="NUMERIC" 	length="3"	>NETWORK MANAGEMENT INFORMATION CODE</field>
+	<field num="92" type="NUMERIC" 	length="2"	>HOST COMMAND</field>
+	<field num="97" type="NUMERIC" 	length="12"	>TERMINAL BALANCE</field>
+	<field num="102" type="LLVAR" 				>CONTACT 1</field>
+	<field num="103" type="LLVAR" 				>CONTACT 2</field>
+	<field num="107" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+	<field num="109" type="LLLVAR" 				>ADVERTISEMENT</field>
+	<field num="110" type="LLLVAR" 				>LAST COMPONENT REPLACEMENT/REPLENISHMENT</field>
+	<field num="115" type="LLLVAR" 				>NOTES VALIDATION CONFIGURATION</field>
+	<field num="124" type="NUMERIC" length="6"	>SETTLEMENT ID / SYNC ID</field>
+	<field num="128" type="BINARY" 	length="8"	>MAC 2</field>
+</parse>
+
+<parse type="0800" extends="0810"></parse>
+<parse type="0300" extends="0810"></parse>
+<parse type="0310" extends="0810">
+	<field num="111" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+	<field num="117" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+	<field num="118" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+	<field num="119" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+</parse>
+
+<parse type="0210">
+	<field num="2" 	type="LLVAR" 				>PRIMARY ACCOUNT NUMBER</field>
+	<field num="3"	type="NUMERIC" 	length="6"	>PROCESSING CODE</field>
+	<field num="4"	type="NUMERIC" 	length="12"	>AMOUNT</field>
+	<field num="5"	type="NUMERIC" 	length="12"	>POIN</field>
+	<field num="7" 	type="DATE10" 				>TRANSMISSION DATE AND TIME MMDDHHmmss</field>
+	<field num="11" type="NUMERIC" 	length="6"	>SYSTEM TRACE AUDIT NUMBER</field>
+	<field num="12" type="NUMERIC" 	length="6"	>LOCAL TRANSACTION TIME HHmmss</field>
+	<field num="13" type="NUMERIC" 	length="4"	>LOCAL TRANSACTION DATE MMDD</field>
+	<field num="15" type="NUMERIC" 	length="4"	>SETTLEMENT DATE MMDD</field>
+	<field num="18" type="NUMERIC" 	length="4"	>MERCHANT TYPE</field>
+	<field num="24" type="NUMERIC" 	length="3"	>AUTH TIMEOUT</field>
+	<field num="25" type="NUMERIC" 	length="2"	>TRX CONDITIONAL FLAG</field>
+	<field num="32" type="LLVAR" 				>INSTITUTION ID</field>
+	<field num="34" type="LLVAR" 				>TERMINAL VERSION</field>
+	<field num="36" type="LLLVAR" 				>TRACK 2 DATA</field>
+	<field num="37" type="NUMERIC" 	length="12"	>RETRIEVAL REFERENCE NUMBER</field>
+	<field num="39" type="ALPHA" 	length="2"	>RESPONSE CODE</field>
+	<field num="41" type="ALPHA" 	length="8"	>CA TERMINAL ID</field>
+	<field num="42" type="ALPHA" 	length="15"	>MERCHANT ID</field>
+	<field num="44" type="LLVAR" 	length="25"	>TERMINAL MAC ADDRESS</field>
+	<field num="47" type="LLLVAR" 				>COUPON DATA</field>
+	<field num="48" type="LLLVAR" 				>ADDITIONAL DATA PRIVATE</field>
+	<field num="49" type="NUMERIC" 	length="3"	>TRANSACTION CURRENCY CODE</field>
+	<field num="53" type="NUMERIC" 	length="16"	>SECURITY RELATED CONTROL INFORMATION</field>
+	<field num="55" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="56" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="57" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="58" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="59" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="60" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="61" type="LLLVAR" 				>TOPUP GAME BILLKEY</field>
+	<field num="62" type="LLLVAR" 				>INQUIRY/RECEIPT DATA</field>
+	<field num="64" type="BINARY" 	length="8"	>MAC 1</field>
+	<field num="82"	type="NUMERIC" 	length="12"	>CUSTOMER BALANCE</field>
+	<field num="83"	type="NUMERIC" 	length="12"	>MAX CUSTOMER BALANCE LIMIT</field>
+	<field num="85"	type="NUMERIC" 	length="12"	>CUSTOMER REMAINING POIN</field>
+	<field num="97"	type="NUMERIC" 	length="12"	>TERMINAL/CUST BALANCE</field>
+	<field num="109" type="LLLVAR" 				>ADVERTISEMENT</field>
+	<field num="120" type="LLLVAR" 				>SWITCHER REFF NUMBER</field>
+	<field num="121" type="LLLVAR" 				>FOOTER</field>
+	<field num="122" type="LLLVAR" 				>ADDITIONAL PRODUCT INFO</field>
+	<field num="123" type="LLLVAR" 				>ADDITIONAL PRODUCT INFO</field>
+	<field num="124" type="NUMERIC" length="6"	>SETTLEMENT ID</field>
+	<field num="128" type="BINARY" 	length="8"	>MAC 2</field>
+</parse>
+<parse type="0200" extends="0210"></parse>
+<parse type="0220" extends="0210"></parse>
+<parse type="0221" extends="0210"></parse>
+<parse type="0230" extends="0210"></parse>
+<parse type="0100" extends="0210"></parse>
+<parse type="0110" extends="0210"></parse>
+<parse type="0400" extends="0210"></parse>
+<parse type="0401" extends="0210"></parse>
+<parse type="0410" extends="0210"></parse>
+<parse type="0411" extends="0210"></parse>
+<parse type="0420" extends="0210"></parse>
+<parse type="0421" extends="0210"></parse>
+
+<parse type="0650">
+	<field num="7" 	type="DATE10" 				>TRANSMISSION DATE AND TIME</field>
+	<field num="11" type="NUMERIC" 	length="6"	>SYSTEM TRACE AUDIT NUMBER</field>
+	<field num="34" type="LLVAR" 	length="28"	>TERMINAL VERSION</field>
+	<field num="36" type="LLLVAR" 				>TRACK 2 DATA</field>
+	<field num="37" type="NUMERIC" 	length="12"	>RETRIEVAL REFERENCE NUMBER</field>
+	<field num="39" type="ALPHA" 	length="2"	>RESPONSE CODE</field>
+	<field num="41" type="ALPHA" 	length="8"	>TERMINAL CODE</field>
+	<field num="44" type="LLVAR" 	length="25"	>TERMINAL MAC ADDRESS</field>
+	<field num="64" type="BINARY" 	length="8"	>MAC 1</field>
+	<field num="107" type="LLLVAR" 				>PRINTER CONFIG AND COUNTER</field>
+	<field num="126" type="LLLVAR" 				>TRANSACTION COUNTER</field>
+	<field num="128" type="BINARY" 	length="8"	>MAC 2</field>
+</parse>
+<parse type="0640" extends="0650"></parse>
+
+<parse type="0510">
+	<field num="7" 	type="DATE10" 				>TRANSMISSION DATE AND TIME</field>
+	<field num="11" type="NUMERIC" 	length="6"	>SYSTEM TRACE AUDIT NUMBER</field>
+	<field num="39" type="ALPHA" 	length="2"	>RESPONSE CODE</field>
+	<field num="41" type="ALPHA" 	length="8"	>TERMINAL CODE</field>
+	<field num="44" type="LLVAR" 	length="25"	>TERMINAL MAC ADDRESS</field>
+	<field num="64" type="BINARY" 	length="8"	>MAC 1</field>
+	<field num="116" type="LLLVAR" 				>CASSETE STATUS AND COUNTER</field>
+	<field num="124" type="NUMERIC" length="6"	>SETTLEMENT ID</field>
+	<field num="125" type="LLLVAR" 				>SETTLEMENT DATE</field>
+	<field num="126" type="LLLVAR" 				>TRANSACTION COUNTER</field>
+	<field num="128" type="BINARY" 	length="8"	>MAC 2</field>
+</parse>
+<parse type="0500" extends="0510"></parse>
+
+</j8583-config>
