@@ -44,7 +44,7 @@ public class SignOffMessageHandler implements IncommingMessageHandler {
 	@Override
 	public String[] keys() {
 		return new String[] {
-				StringUtils.join(new String[] {MTI.NETWORK_MANAGEMENT.val, "", NetworkManagementCode.SIGN_OFF.val}, ".") 
+				StringUtils.join(new String[] {MTI.NETWORK_MANAGEMENT.getString(), NetworkManagementCode.SIGN_OFF.val}, ".") 
 		};
 	}
 }

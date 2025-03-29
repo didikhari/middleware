@@ -1,7 +1,11 @@
 package com.codeinvocation.middleware.dto;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.codeinvocation.middleware.constant.InternalRC;
-import com.solab.iso8583.IsoMessage;
+import com.solab.iso8583.CustomIsoMessage;
 import com.solab.iso8583.IsoType;
 
 import lombok.Builder;
@@ -9,15 +13,26 @@ import lombok.Builder;
 @Builder
 public class TransactionContext {
 	private byte[] rawReqMsg;
-	private IsoMessage reqMsg;
-	private IsoMessage respMsg;
+	private CustomIsoMessage reqMsg;
+	private CustomIsoMessage respMsg;
 	private String clientIpAddress;
 	private Integer clientPort;
 	private String connectionId;
 	private Long requestTimestamp;
+	private Long responseTimestamp;
+	@Builder.Default
+	private Map<ContextKey, Object> map = Collections.synchronizedMap(new HashMap<ContextKey, Object>());
 	
 	public void setResponseCode(InternalRC internalRc) {
 		respMsg.setValue(39, internalRc.val, IsoType.ALPHA, 2);
+	}
+	
+	public <T> void put(ContextKey key, T obj) {
+		map.put(key, obj);
+	}
+
+	public <T> void get(ContextKey key) {
+		map.get(key);
 	}
 	
 	public byte[] getRawReqMsg() {
@@ -26,16 +41,16 @@ public class TransactionContext {
 	public void setRawReqMsg(byte[] rawReqMsg) {
 		this.rawReqMsg = rawReqMsg;
 	}
-	public IsoMessage getReqMsg() {
+	public CustomIsoMessage getReqMsg() {
 		return reqMsg;
 	}
-	public void setReqMsg(IsoMessage reqMsg) {
+	public void setReqMsg(CustomIsoMessage reqMsg) {
 		this.reqMsg = reqMsg;
 	}
-	public IsoMessage getRespMsg() {
+	public CustomIsoMessage getRespMsg() {
 		return respMsg;
 	}
-	public void setRespMsg(IsoMessage respMsg) {
+	public void setRespMsg(CustomIsoMessage respMsg) {
 		this.respMsg = respMsg;
 	}
 	public String getClientIpAddress() {
@@ -61,6 +76,14 @@ public class TransactionContext {
 	}
 	public void setRequestTimestamp(Long requestTimestamp) {
 		this.requestTimestamp = requestTimestamp;
+	}
+
+	public Long getResponseTimestamp() {
+		return responseTimestamp;
+	}
+
+	public void setResponseTimestamp(Long responseTimestamp) {
+		this.responseTimestamp = responseTimestamp;
 	}
 	
 }

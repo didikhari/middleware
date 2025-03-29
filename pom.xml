@@ -12,8 +12,8 @@
 	<artifactId>middleware</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>middleware</name>
-	<description>Middleware Application </description>
-	<url/>
+	<description>Middleware Application</description>
+	<url>https://codeinvocation.com</url>
 	<licenses>
 		<license/>
 	</licenses>
@@ -34,15 +34,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-integration</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-ip</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>net.sf.j8583</groupId>
 			<artifactId>j8583</artifactId>
 			<version>1.17.0</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -60,6 +63,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-test</artifactId>

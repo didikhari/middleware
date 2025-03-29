@@ -20,7 +20,7 @@ public class PaymentMessageHandler implements IncommingMessageHandler {
 	@Override
 	public String[] keys() {
 		return new String[] {
-				StringUtils.join(new String[] {MTI.TRANSACTIONAL.val, ProcessingCode.PAYMENT.val, ""}, ".") 
+				StringUtils.join(new String[] {MTI.TRANSACTIONAL.getString(), ProcessingCode.PAYMENT.val}, ".") 
 		};
 	}
 }

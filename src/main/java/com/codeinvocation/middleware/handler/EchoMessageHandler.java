@@ -45,7 +45,9 @@ public class EchoMessageHandler implements IncommingMessageHandler {
 	@Override
 	public String[] keys() {
 		return new String[] {
-				StringUtils.join(new String[] {MTI.NETWORK_MANAGEMENT.val, "", NetworkManagementCode.ECHO.val}, ".") 
+				StringUtils.join(
+						new String[] {MTI.NETWORK_MANAGEMENT.getString(), NetworkManagementCode.ECHO.val},
+						".") 
 		};
 	}
 

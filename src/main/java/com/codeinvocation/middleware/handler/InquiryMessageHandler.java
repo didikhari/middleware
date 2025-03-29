@@ -20,7 +20,7 @@ public class InquiryMessageHandler implements IncommingMessageHandler {
 	@Override
 	public String[] keys() {
 		return new String[] {
-				StringUtils.join(new String[] {MTI.TRANSACTIONAL.val, ProcessingCode.INQUIRY.val, ""}, ".") 
+				StringUtils.join(new String[] {MTI.TRANSACTIONAL.getString(), ProcessingCode.INQUIRY.val}, ".") 
 		};
 	}
 }

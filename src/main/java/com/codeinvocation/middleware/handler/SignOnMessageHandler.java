@@ -44,7 +44,7 @@ public class SignOnMessageHandler implements IncommingMessageHandler {
 	@Override
 	public String[] keys() {
 		return new String[] {
-				StringUtils.join(new String[] {MTI.NETWORK_MANAGEMENT.val, "", NetworkManagementCode.SIGN_ON.val}, ".") 
+				StringUtils.join(new String[] {MTI.NETWORK_MANAGEMENT.getString(),  NetworkManagementCode.SIGN_ON.val}, ".") 
 		};
 	}
 

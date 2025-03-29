@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<property name="BASE_FILENAME" value="payment-gateway"/>
+	
+	<appender name="Console"
+        class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{ISO8601} %-5level [%thread] [trace_id=%X{X-B3-TraceId}] %logger{36} - %msg%n%throwable
+            </Pattern>
+        </layout>
+    </appender>
+   
+    <springProfile name="local | test">
+		<root level="INFO">
+			<appender-ref ref="Console" />
+		</root>
+	</springProfile>
+	
+    <springProfile name="dev">
+		<property name="LOG_PATH" value="log/"/>
+		<include resource="com/tubox/logging/file-appender.xml" />
+		<root level="DEBUG">
+			<appender-ref ref="Console" />
+			<appender-ref ref="RollingFile" />
+		</root>
+	</springProfile>
+	
+	<springProfile name="staging | prod">
+		<property name="LOG_PATH" value="/usr/local/syb/log/mw/payment-gateway-service/"/>
+		<include resource="com/tubox/logging/file-appender.xml" />
+		<root level="INFO">
+			<appender-ref ref="RollingFile" />
+		</root>
+	</springProfile>
+	
+</configuration>

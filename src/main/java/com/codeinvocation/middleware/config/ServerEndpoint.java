@@ -13,17 +13,17 @@ import com.codeinvocation.middleware.constant.InternalRC;
 import com.codeinvocation.middleware.dto.TransactionContext;
 import com.codeinvocation.middleware.handler.DynamicMessageHandler;
 import com.codeinvocation.middleware.handler.IncommingMessageHandler;
-import com.solab.iso8583.IsoMessage;
+import com.solab.iso8583.CustomIsoMessage;
 import com.solab.iso8583.MessageFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @MessageEndpoint
-public class BillerSimulatorEndpoint {
+public class ServerEndpoint {
 
 	@Autowired
-	private MessageFactory<IsoMessage> messageFactory;
+	private MessageFactory<CustomIsoMessage> messageFactory;
 	
 	@Autowired
 	private DynamicMessageHandler dynamicMessageHandler;
@@ -47,9 +47,11 @@ public class BillerSimulatorEndpoint {
 		
 		if (payLoad.length != 0) {
 			try {
-				IsoMessage reqMsg = messageFactory.parseMessage(payLoad, 0);
-				log.info("Received Request [{}]", reqMsg.debugString());
+				CustomIsoMessage reqMsg = messageFactory.parseMessage(payLoad, 0);
 				ctx.setReqMsg(reqMsg);
+				log.info("Received Request [{}]", reqMsg.dumpField(true, 
+		    			ctx.getConnectionId(), ctx.getClientIpAddress(), 
+		    			ctx.getClientPort(), ctx.getRequestTimestamp()));
 				return ctx;
 				
 	    	} catch (Exception e) {
@@ -77,7 +79,9 @@ public class BillerSimulatorEndpoint {
     		ctx.setResponseCode(InternalRC.INVALID_MESSAGE);
     	}
     	
-    	log.info("Sending Response [{}]", ctx.getRespMsg().debugString());
+    	log.info("Sending Response [{}]", ctx.getRespMsg().dumpField(false, 
+    			ctx.getConnectionId(), ctx.getClientIpAddress(), 
+    			ctx.getClientPort(), System.currentTimeMillis()));
         return ctx.getRespMsg().writeData();
     }
 
